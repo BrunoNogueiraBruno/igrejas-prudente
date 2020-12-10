@@ -1,11 +1,10 @@
 import React from 'react';
+import ChurchesMap from '../components/ChurchesMap';
 
 class Home extends React.Component {
   render() {
     return (
-      <div>
-        Home
-      </div>
+      <ChurchesMap />
     );
   }
 }
