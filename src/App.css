@@ -1,0 +1,9 @@
+.show-church {
+  background-color: aquamarine;
+  height: 33vh;
+  width: 100vw;
+}
+
+.show-church img {
+  width: 100%;
+}

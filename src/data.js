@@ -1,5 +1,3 @@
-const images = './images/churches/';
-
 const churchesIndex = {
   researchers: [
   {
@@ -55,8 +53,8 @@ const churchesIndex = {
       address: { street: 'Rua Maria Glória', number: 465, region: 'Vila Santa Helena' },
       location: [-22.11994433372235, -51.401058542355464],
       images: {
-        first: { path: `${images}vl-stahelena_1a` },
-        second: { path: `${images}vl-stahelena_1b`, caption: 'Anexo da igreja' },
+        first: { path: `/churches/vl-stahelena_1a.jpeg` },
+        second: { path: `/churches/vl-stahelena_1b.jpeg`, caption: 'Anexo da igreja' },
       },
       date: { fieldResearch: '08/06/2020', analysis: '08/06/2020' },
     },
@@ -66,8 +64,8 @@ const churchesIndex = {
       address: { street: 'Rua Marechal Floriano Peixoto', number: 218, region: 'Vila Marcondes' },
       location: [-22.121379666326302, -51.38204748098472],
       images: {
-        first: { path: `${images}vl-marcondes_1a` },
-        second: { path: `${images}vl-marcondes_1a`, caption: 'Horário dos cultos' },
+        first: { path: `/churches/vl-marcondes_1a.jpeg` },
+        second: { path: `/churches/vl-marcondes_1a.jpeg`, caption: 'Horário dos cultos' },
       },
       schedule: {
         sunday: { hour: 20 },
@@ -81,7 +79,7 @@ const churchesIndex = {
       address: { street: 'Rua Marechal Floriano Peixoto', number: 544, region: 'Vila Marcondes' },
       location: [-22.119008958183883, -51.38096450371862],
       images: {
-        first: { path: `${images}vl-marcondes_2a` },
+        first: { path: `/churches/vl-marcondes_2a.jpeg` },
       },
       schedule: {
         sunday: { hour: 19 },
@@ -96,11 +94,11 @@ const churchesIndex = {
       location: [-22.11864418095041, -51.38131754235834],
       images: {
         first: {
-          path: `${images}centro_1a`,
+          path: `/churches/centro_1a.jpeg`,
           caption: `OBS.: Devido à problemas com as imagens originais da fachada, a Igreja está
            atualizada incorretamente, sendo que agora é a IGREJA BATISTA LAGOINHA que utiliza o prédio.`
         },
-        second: { path: `${images}centro_1b`, caption: 'Estacionamento' },
+        second: { path: `/images/centro_1b.jpeg`, caption: 'Estacionamento' },
       },
       schedule: {
         sunday: [
@@ -117,7 +115,7 @@ const churchesIndex = {
       address: { street: 'Rua Raposo Tavares', number: 40, region: 'Vila Tazitsu' },
       location: [-22.107756871680987, -51.393375058297735],
       images: {
-        first: { path: `${images}vl-tazitsu_1a` },
+        first: { path: `/churches/vl-tazitsu_1a.jpeg` },
       },
       schedule: {
         sunday: { hour: 19, title: 'Culto da Família' },
@@ -132,7 +130,7 @@ const churchesIndex = {
       address: { street: 'Rua Pastor Jorge', number: 890, region: 'Jardim Bongiovani' },
       location: [-22.136306654839426, -51.4025304809446],
       images: {
-        first: { path: `${images}jd-bongiovani_1a` },
+        first: { path: `/churches/jd-bongiovani_1a.jpeg` },
       },
       schedule: {
         sunday: { hour: 19.15 },
