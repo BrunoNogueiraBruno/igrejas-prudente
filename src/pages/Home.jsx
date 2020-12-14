@@ -1,12 +1,11 @@
-import React from 'react';
-import ChurchesMap from '../components/ChurchesMap';
+import React from 'react'
 
 class Home extends React.Component {
   render() {
     return (
-      <ChurchesMap />
-    );
+      <div>igrejas</div>
+    )
   }
 }
 
-export default Home;
+export default Home
