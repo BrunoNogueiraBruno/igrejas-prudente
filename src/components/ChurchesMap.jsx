@@ -35,6 +35,13 @@ class ChurchesMap extends Component {
     })
   }
 
+  onClickMap() {
+    this.setState({
+      selectedChurch: {},
+      windowHeight: (window.screen.height) * 1,
+    })
+  }
+
   render() {
     return (
       <div>
@@ -43,6 +50,7 @@ class ChurchesMap extends Component {
           defaultZoom={13}
           width={this.state.windowWidth}
           height={this.state.windowHeight}
+          onClick={() => this.onClickMap()}
         >
           {this.getMarkers()}
         </Map>
