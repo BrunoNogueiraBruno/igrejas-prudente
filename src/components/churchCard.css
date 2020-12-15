@@ -1,10 +1,11 @@
 .container {
-  align-items: center;
+  background-color: #303437;
+  color: white;
   display: flex;
+  height: 55vh;
+  justify-content: space-between;
   text-align: center;
   flex-direction: column;
-  padding: 3%;
-  z-index: 20;
 }
 
 .images-container {
@@ -14,6 +15,12 @@
 }
 
 .image {
-  border-right: 3px solid white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.493);
+  margin-right: 2px;
   max-height: 30vh;
+}
+
+.address {
+  background-color: #1d1f20;
+  padding: 5vw;
 }

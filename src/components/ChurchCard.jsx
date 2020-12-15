@@ -28,7 +28,7 @@ class ChurchCard extends Component {
       return (
         <div key={id}>
           <img className="image" src={path} alt={name} />
-          <p className="image-caption">{caption}</p>
+          <div>{caption}</div>
         </div>
       )
     })
@@ -57,7 +57,7 @@ class ChurchCard extends Component {
         <div className="images-container">
           {this.getImages(images, name)}
         </div>
-        <p>{`${region} | ${street}, nº${number}`}</p>
+        <div className="address">{`${region} | ${street}, nº${number}`}</div>
         {/* {this.getSchedule(schedule)} */}
         {/* {this.getResearcher(researchers, id)} */}
       </div>

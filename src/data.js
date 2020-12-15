@@ -95,8 +95,7 @@ const churchesIndex = {
       images: [
         {
           id: 'im-vc8suguy4wiopor7ch2b', path: `/churches/centro_1a.jpeg`,
-          caption: `OBS.: Devido à problemas com as imagens originais da fachada, a Igreja está
-           atualizada incorretamente, sendo que agora é a IGREJA BATISTA LAGOINHA que utiliza o prédio.`
+          caption: `Atualmente o prédio é usado pela IGREJA BATISTA LAGOINHA`
         },
         { id: 'im-aloqk1c7wjlzjmwthr88', path: `/churches/centro_1b.jpeg`, caption: 'Estacionamento' },
       ],
