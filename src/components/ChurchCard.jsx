@@ -41,10 +41,16 @@ class ChurchCard extends Component {
   //   })
   // }
 
+  componentDidMount() {
+
+  }
+
   render() {
     const { church, researchers } = this.props
     const { id, name, schedule, images, address = {} } = church
     const { region, street, number } = address
+
+    if (region === undefined) return <p>{''}</p>
     return (
       <div>
         <h2>{name}</h2>

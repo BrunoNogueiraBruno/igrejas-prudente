@@ -6,14 +6,21 @@ import ChurchCard from './ChurchCard'
 class ChurchesMap extends Component {
   constructor(props) {
     super(props)
-    this.state = { selectedChurch: {} }
+    this.state = {
+      selectedChurch: {},
+      windowHeight: (window.screen.height),
+      windowWidth: window.screen.width,
+    }
 
     this.onClickMarker = this.onClickMarker.bind(this)
     this.getMarkers = this.getMarkers.bind(this)
   }
 
   onClickMarker(selectedChurch) {
-    this.setState({ selectedChurch })
+    this.setState({
+      selectedChurch,
+      windowHeight: (window.screen.height) * 0.5,
+    })
   }
   getMarkers() {
     const { churches } = this.props.churches
@@ -27,10 +34,16 @@ class ChurchesMap extends Component {
       )
     })
   }
+
   render() {
     return (
       <div>
-        <Map defaultCenter={[-22.118707689931316, -51.38796816527416]} defaultZoom={13} width={600} height={400}>
+        <Map
+          defaultCenter={[-22.12, -51.407]}
+          defaultZoom={13}
+          width={this.state.windowWidth}
+          height={this.state.windowHeight}
+        >
           {this.getMarkers()}
         </Map>
         <ChurchCard church={this.state.selectedChurch} />
