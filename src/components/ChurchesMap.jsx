@@ -1,74 +1,47 @@
-import React from 'react';
-import { Map, Marker } from 'pigeon-maps';
-import churchesIndex from '../data';
+import React, { Component } from 'react'
+import { Map, Marker } from 'pigeon-maps'
+import { connect } from 'react-redux'
+import ChurchCard from './ChurchCard'
 
-class ChurchesMap extends React.Component {
+class ChurchesMap extends Component {
   constructor(props) {
-    super(props);
-  
-    this.state = {
-      church: {
-        id: '',
-        name: 'Igreja Lorem Ipsum',
-        address: { street: '', number: 0, region: '' },
-        location: [0, 0],
-        images: {
-          first: { path: '', caption: '' },
-          second: { path: '', caption: '' },
-        },
-        schedule: {
-          sunday: { hour: 0, title: '' },
-          wednesday: { hour: 0, title: '' },
-        },
-        date: { fieldResearch: '', analysis: '' },
-      },
-    };
+    super(props)
+    this.state = { selectedChurch: {} }
 
-    this.onClickHandle = this.onClickHandle.bind(this);
-    this.getChurchLocations = this.getChurchLocations.bind(this);
-  };
-
-  onClickHandle(church) {
-    console.log(church);
-    this.setState({ church });
+    this.onClickMarker = this.onClickMarker.bind(this)
+    this.getMarkers = this.getMarkers.bind(this)
   }
 
-  getChurchLocations() {
-    return (
-      churchesIndex.churches.map((church) => {
-        return (
-          <Marker
-            key={church.id}
-            anchor={church.location}
-            onClick={() => {this.onClickHandle(church)}}
-          />
-        );
-      })
-    )
+  onClickMarker(selectedChurch) {
+    this.setState({ selectedChurch })
   }
-
+  getMarkers() {
+    const { churches } = this.props.churches
+    return churches.map((church) => {
+      return (
+        <Marker
+          key={church.id}
+          anchor={church.location}
+          onClick={() => {this.onClickMarker(church)}}
+        />
+      )
+    })
+  }
   render() {
-    const churches = this.state.church;
     return (
       <div>
-        <Map
-          defaultCenter={[-22.1242, -51.4095]}
-          defaultZoom={13}
-          width={window.screen.width}
-          height={(window.screen.height) / 2}
-        >
-          {this.getChurchLocations()}
+        <Map defaultCenter={[-22.118707689931316, -51.38796816527416]} defaultZoom={13} width={600} height={400}>
+          {this.getMarkers()}
         </Map>
-        <div className="show-church">
-          <h3>{churches.name}</h3>
-          <img
-            src={window.location.origin + churches.images.first.path}
-            alt={churches.images.first.path}
-          ></img>
-        </div>
+        <ChurchCard church={this.state.selectedChurch} />
       </div>
-    );
+    )
   }
 }
 
-export default ChurchesMap;
+const mapStateToProps = (state) => {
+  const { churches } = state
+  return { churches }
+}
+
+export default connect (mapStateToProps)(ChurchesMap)
