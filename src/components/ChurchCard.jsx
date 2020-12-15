@@ -13,10 +13,10 @@ class ChurchCard extends Component {
   getSchedule(schedule = []) {
     return schedule.map((worship) => {
       const { id, day, hour, title } = worship
+      const name = title === undefined ? '' : `${title} |`
       return (
         <div key={id}>
-          <h3>{title}</h3>
-          <p>{`${day}: ${hour}`}</p>
+          <p>{`${name} ${day}: ${hour}`}</p>
         </div>
       )
     })
@@ -57,9 +57,9 @@ class ChurchCard extends Component {
         <div className="images-container">
           {this.getImages(images, name)}
         </div>
-        <div className="address">{`${region} | ${street}, nº${number}`}</div>
-        {/* {this.getSchedule(schedule)} */}
+        {this.getSchedule(schedule)}
         {/* {this.getResearcher(researchers, id)} */}
+        <div className="address">{`${region} | ${street}, nº${number}`}</div>
       </div>
     )
   }
