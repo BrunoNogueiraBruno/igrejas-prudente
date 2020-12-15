@@ -27,8 +27,8 @@ class ChurchCard extends Component {
       const { id, path, caption = '' } = image
       return (
         <div key={id}>
-          <h3>{caption}</h3>
           <img className="image" src={path} alt={name} />
+          <p className="image-caption">{caption}</p>
         </div>
       )
     })
@@ -52,11 +52,13 @@ class ChurchCard extends Component {
 
     if (region === undefined) return <p>{''}</p>
     return (
-      <div>
-        <h2>{name}</h2>
-        {this.getSchedule(schedule)}
-        {this.getImages(images, name)}
-        <p>{`Bairro: ${region} Endereço: ${street}, ${number}`}</p>
+      <div className="container">
+        <h3>{name}</h3>
+        <div className="images-container">
+          {this.getImages(images, name)}
+        </div>
+        <p>{`${region} | ${street}, nº${number}`}</p>
+        {/* {this.getSchedule(schedule)} */}
         {/* {this.getResearcher(researchers, id)} */}
       </div>
     )

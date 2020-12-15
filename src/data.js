@@ -65,7 +65,7 @@ const churchesIndex = {
       location: [-22.121379666326302, -51.38204748098472],
       images: [
         { id: 'im-s5jwsl7ddcg505qzzadf', path: `/churches/vl-marcondes_1a.jpeg` },
-        { id: 'im-9q1vk8ao7bkr6f6xgvue', path: `/churches/vl-marcondes_1b.jpeg`, caption: 'Horário dos cultos:' },
+        { id: 'im-9q1vk8ao7bkr6f6xgvue', path: `/churches/vl-marcondes_1b.jpeg`, caption: 'Horário dos cultos' },
       ],
       schedule: [
         { id: 'da-sakf4rt7ru4bpzqgzfex', day: 'Domingo', hour: 20 },
