@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './churchCard.css'
+import { connect } from 'react-redux'
 
 class ChurchCard extends Component {
   constructor(props) {
@@ -7,7 +8,6 @@ class ChurchCard extends Component {
 
     this.getSchedule = this.getSchedule.bind(this)
     this.getImages = this.getImages.bind(this)
-    // this.getResearcher = this.getResearcher.bind(this)
   }
 
   getSchedule(schedule = []) {
@@ -34,20 +34,28 @@ class ChurchCard extends Component {
     })
   }
 
-  // getResearcher(researchers, churchId) {
-  //   return researchers.map((researcher) => {
-  //     const { responsableFor } = researcher
-  //     responsableFor
-  //   })
-  // }
+  getResearcher(researchers, churchId) {
+    return researchers.map((researcher) => {
+      const { responsableFor, firstName, surname, id } = researcher
+      const isTheChurchIncluded = responsableFor.includes(churchId)
+      if (isTheChurchIncluded) return <p key={id}>{`Pesquisador: ${firstName} ${surname}`}</p>
+      return ''
+    })
+  }
 
-  componentDidMount() {
-
+  getDate({ fieldResearch, analysis }) {
+    return (
+      <div>
+        <p>{`Pesquisado em: ${fieldResearch}`}</p>
+        <p>{`Analizado em: ${analysis}`}</p>
+      </div>
+    )
   }
 
   render() {
-    const { church, researchers } = this.props
-    const { id, name, schedule, images, address = {} } = church
+    const { church } = this.props
+    const { researchers } = this.props.churches
+    const { id, name, schedule, images, address = {}, date = {} } = church
     const { region, street, number } = address
 
     if (region === undefined) return <p>{''}</p>
@@ -58,11 +66,17 @@ class ChurchCard extends Component {
           {this.getImages(images, name)}
         </div>
         {this.getSchedule(schedule)}
-        {/* {this.getResearcher(researchers, id)} */}
+        {this.getResearcher(researchers, id)}
+        {this.getDate(date)}
         <div className="address">{`${region} | ${street}, nº${number}`}</div>
       </div>
     )
   }
 }
 
-export default ChurchCard
+const mapStateToProps = (state) => {
+  const { churches } = state
+  return { churches }
+}
+
+export default connect (mapStateToProps)(ChurchCard)
